@@ -35,7 +35,7 @@
             <props>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.format_sql">true</prop>
-                <!-- <prop key="hibernate.hbm2ddl.auto">create</prop>-->
+           <!--      <prop key="hibernate.hbm2ddl.auto">create</prop>-->
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
             </props>
         </property>
@@ -51,10 +51,57 @@
         <property name="username" value="root"/>
         <property name="password" value="root"/>
     </bean>
+    <bean id="userService" class="spring.service.implementation.UserServiceImpl">
+        <property name="userDao" ref="userDao"/>
+    </bean>
+    <bean id="userDao" class="spring.dao.impl.UserDaoImpl">
+        <property name="userRepository" ref="userRepository"/>
+    </bean>
+    <bean id="songService" class="spring.service.implementation.SongServiceImpl">
+        <property name="songDao" ref="songDao"/>
+    </bean>
+    <bean id="songDao" class="spring.dao.impl.SongDaoImpl">
+        <property name="songRepository" ref="songRepository"/>
+    </bean>
+    <bean id="roleService" class="spring.service.implementation.RoleServiceImpl">
+        <property name="roleDao" ref="roleDao"/>
+    </bean>
+    <bean id="roleDao" class="spring.dao.impl.RoleDaoImpl">
+        <property name="roleRepository" ref="roleRepository"/>
+    </bean>
+    <bean id="purchaseDetailsService" class="spring.service.implementation.PurchaseServiceImpl">
+        <property name="purchaseDetailsDao" ref="purchaseDetailsDao"/>
+    </bean>
+    <bean id="purchaseDetailsDao" class="spring.dao.impl.PurchaseDaoImpl">
+        <property name="purchaseRepository" ref="purchaseRepository"/>
+    </bean>
+    <bean id="addressService" class="spring.service.implementation.AddressImpl">
+        <property name="addressDao" ref="addressDao"/>
+    </bean>
+    <bean id="addressDao" class="spring.dao.impl.AddressDaoImpl">
+        <property name="addressRepository" ref="addressRepository"/>
+    </bean>
+    <bean id="libraryService" class="spring.service.implementation.LibraryServiceImpl">
+        <property name="libraryDao" ref="libraryDao"/>
+    </bean>
+    <bean id="libraryDao" class="spring.dao.impl.LibraryDaoImpl">
+        <property name="libraryRepository" ref="libraryRepository"/>
+    </bean>
+    <bean id="contentService" class="spring.service.implementation.ContentServiceImpl">
+        <property name="contentDao" ref="contentDao"/>
+    </bean>
+    <bean id="contentDao" class="spring.dao.impl.ContentDaoImpl">
+        <property name="contentRepository" ref="contentRepository"/>
+    </bean>
+    <bean id="basketService" class="spring.service.implementation.BasketServiceImpl">
+        <property name="basketDao" ref="basketDao"/>
+    </bean>
+    <bean id="basketDao" class="spring.dao.impl.BasketDaoImpl">
+        <property name="basketRepository" ref="basketRepository"/>
+    </bean>
     <bean class="org.springframework.orm.jpa.JpaTransactionManager" id="transactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
-
     <mvc:resources mapping="/css/**" location="/css/" />
     <mvc:annotation-driven/>
 </beans>

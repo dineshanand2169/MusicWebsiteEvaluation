@@ -9,6 +9,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private int id;
+    @Column(name = "name")
+    private String name;
     @Column(name = "phone_number")
     private long phoneNumber;
     @Column(name = "email")
@@ -21,6 +23,14 @@ public class User {
     private boolean active;
     @Column(name = "status")
     private String status;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getId() {
         return id;

@@ -32,9 +32,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateUser(User user) {
-        userDao.updateUser(user);
-
+    public void updateUser(User user) throws SQLException {
+        User user1 = getUserById(user.getId());
+        user1.setName(user.getName());
+        user1.setUserName(user.getUserName());
+        user1.setEmail(user.getEmail());
+        user1.setPassword(user.getPassword());
+        user1.setPhoneNumber(user.getPhoneNumber());
+        userDao.updateUser(user1);
     }
 
     @Override
@@ -46,5 +51,18 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserById(int userId) throws SQLException {
         return userDao.getUserById(userId);
+    }
+
+    @Override
+    public User getUpdatedUser(User user) {
+        user.setActive(false);
+        user.setStatus("Registered");
+        userDao.insertUser(user);
+        return user;
+    }
+
+    @Override
+    public User getUserByUserName(String name) {
+        return userDao.getUserByUserName(name);
     }
 }

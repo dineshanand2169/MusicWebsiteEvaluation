@@ -22,6 +22,16 @@ public class Song {
     private long downloadCount;
     @Column(name = "price")
     private long price;
+    @Column(name = "url")
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public int getSongId() {
         return songId;
@@ -77,5 +87,14 @@ public class Song {
 
     public void setPrice(long price) {
         this.price = price;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Song)) {
+            return false;
+        }
+        Song otherMember = (Song) obj;
+        return otherMember.getSongId() == (getSongId());
     }
 }

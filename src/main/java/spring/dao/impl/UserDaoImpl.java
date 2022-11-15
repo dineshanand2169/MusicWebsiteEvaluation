@@ -45,4 +45,9 @@ public class UserDaoImpl implements UserDao {
     public User getUserById(int userId) throws SQLException {
         return userRepository.findById(userId).get();
     }
+
+    @Override
+    public User getUserByUserName(String name) {
+        return userRepository.getUserByUserName(name);
+    }
 }

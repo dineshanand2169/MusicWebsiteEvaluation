@@ -7,11 +7,11 @@
 
     <http auto-config="true" use-expressions="true">
         <intercept-url pattern="/resources/**" access="permitAll" />
-        <intercept-url pattern="/hello*"
-                       access="hasAnyRole('ADMIN','USER')" />
-        <intercept-url pattern="/admin**" access="hasRole('ADMIN')" />
-        <intercept-url pattern="/superAdmin**" access="hasRole('SUPER_ADMIN')" />
-        <form-login login-page="/login" default-target-url="/helloworld"
+        <intercept-url pattern="/userHome*"
+                       access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" />
+        <intercept-url pattern="/adminHome**" access="hasRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/superAdminHome**" access="hasRole('ROLE_SUPERADMIN')" />
+        <form-login login-page="/login" default-target-url="/userHome"
                     authentication-failure-url="/loginError" />
         <logout logout-success-url="/" logout-url="/j_spring_security_logout" />
         <csrf disabled="true" />
