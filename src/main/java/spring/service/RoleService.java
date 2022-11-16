@@ -15,4 +15,6 @@ public interface RoleService {
     void deleteRole(int roleId) throws SQLException;
 
     Role getRoleById(int roleId) throws SQLException;
+    List<Role> getUserByRole(String role);
+    Role getRoleByUserName(String userName);
 }

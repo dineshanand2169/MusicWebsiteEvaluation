@@ -47,4 +47,9 @@ public class PurchaseDaoImpl implements PurchaseDetailsDao {
     public PurchaseDetails getPurchaseById(int purchaseId) throws SQLException {
         return purchaseRepository.findById(purchaseId).get();
     }
+
+    @Override
+    public PurchaseDetails getPurchaseByBasketId(int basketId) {
+        return purchaseRepository.getPurchaseByBasketId(basketId);
+    }
 }

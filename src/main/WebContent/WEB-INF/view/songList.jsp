@@ -90,7 +90,7 @@
                       </tr>
                   </c:forEach>
               </table>
-         <button onclick="history.back()">Back to Home</button>
 </c:if>
+<button onclick="history.back()">Back to Home</button>
 </body>
 </html>

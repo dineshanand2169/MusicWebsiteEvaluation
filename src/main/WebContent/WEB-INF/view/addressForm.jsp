@@ -13,11 +13,6 @@
                 <th colspan="2">Edit Address</th>
             </tr>
             <tr>
-                <td>Sl No:</td>
-                <td>${addressDetails.addressId}
-                     <form:hidden path="addressId" size="30" maxlength="30"/></td>
-            </tr>
-            <tr>
                 <td><form:label path="houseName">House Name:</form:label></td>
                 <td>
                     <form:input path="houseName" size="30" maxlength="30"/></td>

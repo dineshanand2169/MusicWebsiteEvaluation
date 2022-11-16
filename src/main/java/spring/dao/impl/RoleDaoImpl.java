@@ -47,4 +47,14 @@ public class RoleDaoImpl implements RoleDao {
     public Role getRoleById(int roleId) throws SQLException {
         return roleRepository.findById(roleId).get();
     }
+
+    @Override
+    public List<Role> getUserByRole(String role) {
+        return roleRepository.getUserByRole(role);
+    }
+
+    @Override
+    public Role getRoleByUserName(String userName) {
+        return roleRepository.getRoleByUserName(userName);
+    }
 }

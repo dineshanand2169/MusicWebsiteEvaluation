@@ -10,9 +10,12 @@
     <body>
     <div align="center">
             <h2>Welcome ${user.name} !</h2>
-    <form method="get"  action="/MusicWebsite/admin/getAllUser/">
+    <form method="get"  action="/MusicWebsite/superAdmin/getAllUser/">
                         </br><input type="submit" class="blue-button" value="All Users"/>
     </form>
+      <form method="get"  action="/MusicWebsite/superAdmin/getAllAdmin/">
+                            </br><input type="submit" class="blue-button" value="All Admin"/>
+        </form>
     <form method="get"  action="/MusicWebsite/admin/viewPurchaseRequest/">
                         </br><input type="submit" class="blue-button" value="View Purchase Request"/>
     </form>
@@ -25,6 +28,7 @@
     <form method="get"  action="/MusicWebsite/admin/addNewSong">
                             </br><input type="submit" class="blue-button" value="Add New Song"/>
     </form>
+
 
 <c:url value="/j_spring_security_logout" var="logoutUrl" />
 <a href="${logoutUrl}">Log Out</a>

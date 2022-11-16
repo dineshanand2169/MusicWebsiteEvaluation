@@ -50,4 +50,9 @@ public class UserDaoImpl implements UserDao {
     public User getUserByUserName(String name) {
         return userRepository.getUserByUserName(name);
     }
+
+    @Override
+    public List<User> getUserByStatus(String status) {
+        return userRepository.getUserByStatus(status);
+    }
 }

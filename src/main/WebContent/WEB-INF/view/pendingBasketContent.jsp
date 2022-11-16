@@ -6,9 +6,7 @@
 </head>
 <body>
 </br>
-    <h2>Hurray! Your Basket is Approved by the Admin!</h2>
-    <h3>Basket List<h3>
-    <h4>Kindly click on the checkout option to proceed for Payment</h4>
+    <h2>Basket Content<h2>
     <c:if test="${!empty songList}">
         <table>
             <tr>
@@ -28,8 +26,9 @@
                 </tr>
             </c:forEach>
         </table>
-</c:if>
-<button onclick="history.back()">Back to Home</button>
-<button onclick='window.location ="/MusicWebsite/basket/checkOut/${userId}/${basketId}" '>  Check Out </button>
-</body>
-</html>
+        </c:if>
+        <a href="<c:url value='/admin/approveRequest/${basketId}' />" >Approve Basket</a>
+        <a href="<c:url value='/admin/rejectRequest/${basketId}' />" >Reject Basket</a>
+        <a href="http://localhost:8080/MusicWebsite/userHome">Home</a>
+        </body>
+        </html>

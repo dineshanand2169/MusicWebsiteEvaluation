@@ -17,4 +17,5 @@ public interface UserDao {
 
     User getUserById(int userId) throws SQLException;
     User getUserByUserName( String name);
+    List<User> getUserByStatus(String status);
 }

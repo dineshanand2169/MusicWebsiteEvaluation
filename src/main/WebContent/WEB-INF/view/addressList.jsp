@@ -16,22 +16,21 @@
                 <th width="120">City</th>
                 <th width="120">State</th>
                 <th width="120">Pin Code</th>
-                <th>Edit</th>
+
             </tr>
             <c:forEach items="${addressDetailsList}" var="addressDetails">
                 <tr>
-                    <td>${addressDetails.addressId}</td>
+                    <td>AD${addressDetails.addressId}</td>
                     <td>${addressDetails.houseName}</td>
                     <td>${addressDetails.houseNumber}</td>
                     <td>${addressDetails.city}</td>
                     <td>${addressDetails.state}</td>
-                    <td>${addressDetails.pinCode}</td>
-                    <td><a href="<c:url value='/user/editSelectedAddress/${addressDetails.addressId}' />" >Edit</a></td>
+                     <td>${addressDetails.pinCode}</td>
                 </tr>
             </c:forEach>
         </table>
-        <a href="<c:url value='/user/addAddress/${userId}' />" >Add another address</a>
-         <button onclick="history.back()">Back to Home</button>
+         <button onclick="history.back()">User Details</button>
+         <a href="http://localhost:8080/MusicWebsite/adminHome">Home</a>
 </c:if>
 </body>
 </html>

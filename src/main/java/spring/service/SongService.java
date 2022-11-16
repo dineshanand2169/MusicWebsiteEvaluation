@@ -18,5 +18,6 @@ public interface SongService {
     Song getSongById(int songId) throws SQLException;
     List<Song> getSongByGenre(String genre);
    List<Song> getAvailableSongs(int userId) throws SQLException;
+   ModelAndView validateSong(Song song);
 
 }

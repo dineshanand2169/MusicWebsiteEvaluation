@@ -17,5 +17,5 @@ public interface UserService {
     User getUserById(int userId) throws SQLException;
     User getUpdatedUser(User user);
     User getUserByUserName( String name);
-
+    List<User> getUserByStatus(String status);
 }

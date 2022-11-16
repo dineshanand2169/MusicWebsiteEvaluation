@@ -3,13 +3,12 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="css/common.css">
+
 </head>
 <body>
 </br>
-<h3>Successfully Updated</h3>
-   <button onclick="history.go(-4)">Home</button>
-   <button onclick="history.go(-3)">Edit Profile Panel</button>
-
+<h2>Failed</h2>
+<h3>One or more credential you have entered is wrong!</h3>
+    <a href="http://localhost:8080/MusicWebsite/adminHome">Home</a>
 </body>
         </html>

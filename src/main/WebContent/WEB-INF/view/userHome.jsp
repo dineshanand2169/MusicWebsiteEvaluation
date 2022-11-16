@@ -16,8 +16,11 @@
     <form method="get"  action="/MusicWebsite/user/editProfile/${user.id}">
                         </br><input type="submit" class="blue-button" value="Edit Profile"/>
     </form>
+    <form method="get"  action="/MusicWebsite/user/allSongs">
+                                </br><input type="submit" class="blue-button" value="All Songs in Website"/>
+    </form>
      <form method="get"  action="/MusicWebsite/user/musicList/${user.id}">
-                        </br><input type="submit" class="blue-button" value="Available Music"/>
+                        </br><input type="submit" class="blue-button" value="Purchase Music"/>
     </form>
     <form method="get"  action="/MusicWebsite/basket/basketStatus/${user.id}">
                             </br><input type="submit" class="blue-button" value="View Basket Status"/>

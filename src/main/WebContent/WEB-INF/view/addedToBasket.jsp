@@ -8,9 +8,8 @@
 <body>
 </br>
 <h3>Song Successfully Added to Basket!!</h3>
-   <button onclick="history.go(-2)">Home</button>
+   <button onclick='window.location ="/MusicWebsite/userHome"' class="blue-button">Back Home</button>
    <button onclick='window.location ="/MusicWebsite/user/musicList/${userId}"' class="blue-button">
    Add More Songs  </button>
-
 </body>
         </html>

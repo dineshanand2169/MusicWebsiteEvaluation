@@ -47,4 +47,14 @@ public class PurchaseServiceImpl implements PurchaseDetailsService {
     public PurchaseDetails getPurchaseById(int purchaseId) throws SQLException {
         return purchaseDetailsDao.getPurchaseById(purchaseId);
     }
+
+    @Override
+    public Boolean paymentValidation(String paymentMethod) {
+        return paymentMethod.equals("UPI") || paymentMethod.equals("NetBanking") || paymentMethod.equals("Card");
+    }
+
+    @Override
+    public PurchaseDetails getPurchaseByBasketId(int basketId) {
+        return purchaseDetailsDao.getPurchaseByBasketId(basketId);
+    }
 }

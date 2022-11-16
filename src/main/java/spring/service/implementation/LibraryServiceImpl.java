@@ -21,7 +21,7 @@ public class LibraryServiceImpl implements LibraryService {
     }
 
     @Override
-    public void insertLibrary(Library library) {
+    public void insertLibrary(List<Library> library) {
         libraryDao.insertLibrary(library);
 
     }

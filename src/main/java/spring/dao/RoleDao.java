@@ -1,5 +1,6 @@
 package spring.dao;
 
+import org.springframework.data.repository.query.Param;
 import spring.model.Role;
 
 import java.sql.SQLException;
@@ -15,4 +16,6 @@ public interface RoleDao {
     void deleteRole(int roleId) throws SQLException;
 
     Role getRoleById(int roleId) throws SQLException;
+    List<Role> getUserByRole(String role);
+    Role getRoleByUserName(String userName);
 }

@@ -2,6 +2,7 @@ package spring.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.parameters.P;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import spring.model.*;
@@ -84,9 +85,18 @@ public class UserController {
     public ModelAndView editAddressDetails(@PathVariable int userId) throws SQLException {
         ModelAndView modelAndView = new ModelAndView("editAddressDetails");
         List<Address> addressDetailsList = addressService.getByUserId(userId);
+        modelAndView.addObject("userId",userId);
         modelAndView.addObject("addressDetailsList",addressDetailsList);
         modelAndView.addObject("addressDetails",new Address());
         modelAndView.setViewName("editAddressDetails");
+        return modelAndView;
+    }
+    @GetMapping(value = "/addAddress/{userId}")
+    public ModelAndView addAddress(@PathVariable int userId){
+        Address address = new Address();
+        address.setUserId(userId);
+        ModelAndView modelAndView = new ModelAndView("addressForm");
+        modelAndView.addObject("addressDetails",address);
         return modelAndView;
     }
     @GetMapping(value = "/editSelectedAddress/{addressId}")
@@ -100,7 +110,21 @@ public class UserController {
     @PostMapping(value = "/saveAddress")
     public ModelAndView saveAddress(@ModelAttribute("addressDetails") Address addressDetails) {
         addressService.insertAddress(addressDetails);
-        return new ModelAndView("successfulAddressInundation");
+        return new ModelAndView("successfulInundation");
+    }
+    @GetMapping(value = "/allSongs")
+    public ModelAndView allSongs(){
+        List<Song> romanceSongs= songService.getSongByGenre("Romance");
+        List<Song> partySongs= songService.getSongByGenre("Party");
+        List<Song> melodySongs= songService.getSongByGenre("Melody");
+        List<Song> trendingSongs= songService.getSongByGenre("Trending");
+        ModelAndView modelAndView =new ModelAndView("songList");
+        modelAndView.addObject("romanceSongs",romanceSongs);
+        modelAndView.addObject("partySongs",partySongs);
+        modelAndView.addObject("melodySongs",melodySongs);
+        modelAndView.addObject("trendingSongs",trendingSongs);
+        modelAndView.addObject("song",new Song());
+        return modelAndView;
     }
     @GetMapping(value = "/musicList/{userId}")
     public ModelAndView musicList(@PathVariable int userId) throws SQLException {
@@ -144,5 +168,25 @@ public class UserController {
             basketService.insertBasket(basket);
             return basket;
         } else return basketService.getBasketByUserId(userId, "Pending");
+    }
+    @GetMapping("/myLibrary/{userId}")
+    public ModelAndView myLibrary(@PathVariable int userId) throws SQLException {
+        List<Library>  userLibrary= libraryService.getLibraryOfUser(userId);
+        List<Song> librarySongs= new ArrayList<>();
+        for(Library library : userLibrary){
+            Song song = songService.getSongById(library.getSongId());
+            librarySongs.add(song);
+        }
+        ModelAndView modelAndView = new ModelAndView("myLibrary");
+        modelAndView.addObject("librarySongs",librarySongs);
+        modelAndView.addObject("song",new Song());
+        return modelAndView;
+    }
+    @GetMapping("/playSong/{songId}")
+    public ModelAndView playSong(@PathVariable int songId) throws SQLException {
+        Song song = songService.getSongById(songId);
+        ModelAndView modelAndView = new ModelAndView("playSong");
+        modelAndView.addObject("song",song);
+        return modelAndView;
     }
 }

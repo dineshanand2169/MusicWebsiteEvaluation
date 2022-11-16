@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface LibraryDao {
-    void insertLibrary(Library library);
+    void insertLibrary(List<Library> library);
 
     List<Library> getAllLibrary();
 

@@ -50,4 +50,14 @@ public class BasketServiceImpl implements BasketService {
     public Basket getBasketByUserId(int userId, String basketStatus) {
         return basketDao.getBasketByUserId(userId,basketStatus);
     }
+
+    @Override
+    public List<Basket> getAllBasketByUserId(int userId, String basketStatus) {
+        return basketDao.getAllBasketByUserId(userId,basketStatus);
+    }
+
+    @Override
+    public List<Basket> getAllBasketByStatus(String basketStatus) {
+        return basketDao.getAllBasketByStatus(basketStatus);
+    }
 }

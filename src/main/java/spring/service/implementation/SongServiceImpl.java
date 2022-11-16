@@ -1,6 +1,7 @@
 package spring.service.implementation;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.servlet.ModelAndView;
 import spring.dao.SongDao;
 import spring.model.Basket;
 import spring.model.Content;
@@ -13,6 +14,7 @@ import spring.service.SongService;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class SongServiceImpl implements SongService {
     @Autowired
@@ -69,16 +71,33 @@ public class SongServiceImpl implements SongService {
         List<Library> userLibrary= libraryService.getLibraryOfUser(userId);
         List<Song>songList1 = new ArrayList<>();
         for(Library library :userLibrary){
-           songList1.add(getSongById(library.getSongId()));
+            songList1.add(getSongById(library.getSongId()));
         }
-        Basket basket = basketService.getBasketByUserId(userId,"Pending");
-        if (basket != null) {
-            List<Content> contentList = basket.getContentList();
-            for (Content content : contentList) {
+        Basket pendingBasket = basketService.getBasketByUserId(userId,"Pending");
+        if (pendingBasket != null) {
+            List<Content> pendingBasketContentList = pendingBasket.getContentList();
+            for (Content content : pendingBasketContentList) {
+                songList1.add(getSongById(content.getSongId()));
+            }
+        }
+        Basket approvedBasket = basketService.getBasketByUserId(userId,"Approved");
+        if(approvedBasket!=null){
+            List<Content> approvedBasketContentList = approvedBasket.getContentList();
+            for(Content content : approvedBasketContentList){
                 songList1.add(getSongById(content.getSongId()));
             }
         }
         songList.removeAll(songList1);
         return songList;
+    }
+
+    @Override
+    public ModelAndView validateSong(Song song) {
+        if((Objects.equals(song.getGenre(), "Romance"))||(Objects.equals(song.getGenre(), "Party"))||(Objects.equals(song.getGenre(), "Melody"))||(Objects.equals(song.getGenre(), "Trending"))){
+            song.setDownloadCount(0);
+            insertSong(song);
+            return new ModelAndView("requestManagementSuccessful");
+        }else return new ModelAndView("error");
+
     }
 }

@@ -8,7 +8,8 @@
 <body>
 </br>
 <h3>Successfully Updated</h3>
-    <a href="http://localhost:8080/MusicWebsite/userHome">Home</a>
+    <a href="http://localhost:8080/MusicWebsite/adminHome">Home</a>
+
 
 </body>
         </html>

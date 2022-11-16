@@ -18,8 +18,7 @@ public class LoginController {
     @RequestMapping("/userHome")
     public ModelAndView userHome(ModelMap model, Principal principal) {
 
-        String loggedInUserName=principal.getName();
-        User user = userService.getUserByUserName(loggedInUserName);
+        User user = getUser(principal);
         ModelAndView modelAndView = new ModelAndView("userHome","userName",user.getUserName());
         modelAndView.addObject("user",user);
         return modelAndView;
@@ -27,9 +26,21 @@ public class LoginController {
 
     @RequestMapping("/adminHome")
     public ModelAndView adminHome(ModelMap model,Principal principal) {
-        String loggedInUserName=principal.getName();
-        User user = userService.getUserByUserName(loggedInUserName);
+        User user = getUser(principal);
         ModelAndView modelAndView = new ModelAndView("adminHome","userName",user.getUserName());
+        modelAndView.addObject("user",user);
+        return modelAndView;
+    }
+
+    private User getUser(Principal principal) {
+        String loggedInUserName= principal.getName();
+        return userService.getUserByUserName(loggedInUserName);
+    }
+
+    @RequestMapping("/superAdminHome")
+    public ModelAndView superAminHome(ModelMap model,Principal principal) {
+        User user = getUser(principal);
+        ModelAndView modelAndView = new ModelAndView("superAdminHome","userName",user.getUserName());
         modelAndView.addObject("user",user);
         return modelAndView;
     }

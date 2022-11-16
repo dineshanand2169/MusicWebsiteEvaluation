@@ -100,6 +100,6 @@
               </table>
 
 </c:if>
-<button onclick="history.back()">Back to Home</button>
+<a href="http://localhost:8080/MusicWebsite/userHome">Home</a>
 </body>
 </html>

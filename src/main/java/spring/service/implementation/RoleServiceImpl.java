@@ -47,4 +47,14 @@ public class RoleServiceImpl implements RoleService {
     public Role getRoleById(int roleId) throws SQLException {
         return roleDao.getRoleById(roleId);
     }
+
+    @Override
+    public List<Role> getUserByRole(String role) {
+        return roleDao.getUserByRole(role);
+    }
+
+    @Override
+    public Role getRoleByUserName(String userName) {
+        return roleDao.getRoleByUserName(userName);
+    }
 }

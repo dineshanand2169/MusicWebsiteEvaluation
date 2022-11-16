@@ -13,6 +13,8 @@
     <a href="userHome" class="link-dark">Click here for Customer Login </a>
     <br/>
     <a href="adminHome" class="link-dark">Admin Page </a>
+    <br/>
+    <a href="superAdminHome" class="link-dark">Super Admin Page </a>
 
 
     <form method="get"  action="/MusicWebsite/user/registration">

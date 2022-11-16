@@ -16,8 +16,8 @@ public class PurchaseDetails {
     private String paymentMode;
     @Column(name = "purchase_status")
     private String purchaseStatus;
-    @Column(name = "payment_status")
-    private String paymentStatus;
+    @Column(name = "basket_id")
+    private int basketId;
     @Column(name = "purchase_date")
     private Date purchaseDate;
     @Column(name = "bill_amount")
@@ -55,12 +55,12 @@ public class PurchaseDetails {
         this.purchaseStatus = purchaseStatus;
     }
 
-    public String getPaymentStatus() {
-        return paymentStatus;
+    public int getBasketId() {
+        return basketId;
     }
 
-    public void setPaymentStatus(String paymentStatus) {
-        this.paymentStatus = paymentStatus;
+    public void setBasketId(int basketId) {
+        this.basketId = basketId;
     }
 
     public Date getPurchaseDate() {

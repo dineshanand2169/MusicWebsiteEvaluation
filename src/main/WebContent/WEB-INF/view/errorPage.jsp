@@ -3,12 +3,12 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="css/common.css">
+
 </head>
 <body>
 </br>
-<h3>Successfully Updated</h3>
-    <a href="http://localhost:8080/MusicWebsite/userHome">Home</a>
-
+<h2>Uh Oh! Payment Cancelled</h2>
+<h3>One or more credential you have entered is wrong. Kindly checkout again!</h3>
+   <button onclick="history.go(-3)">Home</button>
 </body>
         </html>

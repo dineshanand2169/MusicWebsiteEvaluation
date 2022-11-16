@@ -21,8 +21,8 @@ public class LibraryDaoImpl implements LibraryDao {
     }
 
     @Override
-    public void insertLibrary(Library library) {
-        libraryRepository.save(library);
+    public void insertLibrary(List<Library> library) {
+        libraryRepository.saveAll(library);
 
     }
 
