@@ -1,16 +1,19 @@
 package spring.service.implementation;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import spring.dao.SongDao;
 import spring.model.Basket;
 import spring.model.Content;
 import spring.model.Library;
 import spring.model.Song;
+import spring.poi.ExcelHelper;
 import spring.service.BasketService;
 import spring.service.LibraryService;
 import spring.service.SongService;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -68,22 +71,22 @@ public class SongServiceImpl implements SongService {
     @Override
     public List<Song> getAvailableSongs(int userId) throws SQLException {
         List<Song> songList = getAllSong();
-        List<Library> userLibrary= libraryService.getLibraryOfUser(userId);
-        List<Song>songList1 = new ArrayList<>();
-        for(Library library :userLibrary){
+        List<Library> userLibrary = libraryService.getLibraryOfUser(userId);
+        List<Song> songList1 = new ArrayList<>();
+        for (Library library : userLibrary) {
             songList1.add(getSongById(library.getSongId()));
         }
-        Basket pendingBasket = basketService.getBasketByUserId(userId,"Pending");
+        Basket pendingBasket = basketService.getBasketByUserId(userId, "Pending");
         if (pendingBasket != null) {
             List<Content> pendingBasketContentList = pendingBasket.getContentList();
             for (Content content : pendingBasketContentList) {
                 songList1.add(getSongById(content.getSongId()));
             }
         }
-        Basket approvedBasket = basketService.getBasketByUserId(userId,"Approved");
-        if(approvedBasket!=null){
+        Basket approvedBasket = basketService.getBasketByUserId(userId, "Approved");
+        if (approvedBasket != null) {
             List<Content> approvedBasketContentList = approvedBasket.getContentList();
-            for(Content content : approvedBasketContentList){
+            for (Content content : approvedBasketContentList) {
                 songList1.add(getSongById(content.getSongId()));
             }
         }
@@ -93,11 +96,23 @@ public class SongServiceImpl implements SongService {
 
     @Override
     public ModelAndView validateSong(Song song) {
-        if((Objects.equals(song.getGenre(), "Romance"))||(Objects.equals(song.getGenre(), "Party"))||(Objects.equals(song.getGenre(), "Melody"))||(Objects.equals(song.getGenre(), "Trending"))){
+        if ((Objects.equals(song.getGenre(), "Romance")) || (Objects.equals(song.getGenre(), "Party")) || (Objects.equals(song.getGenre(), "Melody")) || (Objects.equals(song.getGenre(), "Trending"))) {
             song.setDownloadCount(0);
             insertSong(song);
             return new ModelAndView("requestManagementSuccessful");
-        }else return new ModelAndView("error");
+        } else return new ModelAndView("error");
+    }
 
+    @Override
+    public void save(MultipartFile file) {
+        try {
+            List<Song> songList = ExcelHelper.excelToPerson(file.getInputStream());
+            for (Song song : songList) {
+                song.setDownloadCount(0);
+            }
+            songDao.saveAll(songList);
+        } catch (IOException e) {
+            throw new RuntimeException("fail to store excel data: " + e.getMessage());
+        }
     }
 }

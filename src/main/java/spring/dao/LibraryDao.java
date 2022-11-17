@@ -1,6 +1,5 @@
 package spring.dao;
 
-import org.springframework.data.repository.query.Param;
 import spring.model.Library;
 
 import java.sql.SQLException;
@@ -16,5 +15,6 @@ public interface LibraryDao {
     void deleteLibrary(int libraryId) throws SQLException;
 
     Library getLibraryById(int libraryId) throws SQLException;
+
     List<Library> getLibraryOfUser(int userId);
 }

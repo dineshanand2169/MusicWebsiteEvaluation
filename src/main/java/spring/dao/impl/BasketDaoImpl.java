@@ -50,12 +50,12 @@ public class BasketDaoImpl implements BasketDao {
 
     @Override
     public Basket getBasketByUserId(int userId, String basketStatus) {
-        return basketRepository.getBasketByUserId(userId,basketStatus);
+        return basketRepository.getBasketByUserId(userId, basketStatus);
     }
 
     @Override
     public List<Basket> getAllBasketByUserId(int userId, String basketStatus) {
-        return basketRepository.getAllBasketByUserId(userId,basketStatus);
+        return basketRepository.getAllBasketByUserId(userId, basketStatus);
     }
 
     @Override

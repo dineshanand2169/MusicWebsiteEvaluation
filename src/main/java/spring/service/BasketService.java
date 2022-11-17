@@ -15,8 +15,11 @@ public interface BasketService {
     void deleteBasket(int basketId) throws SQLException;
 
     Basket getBasketById(int basketId) throws SQLException;
+
     Basket getBasketByUserId(int userId, String basketStatus);
-    List<Basket> getAllBasketByUserId( int userId,String basketStatus);
+
+    List<Basket> getAllBasketByUserId(int userId, String basketStatus);
+
     List<Basket> getAllBasketByStatus(String basketStatus);
 
 }

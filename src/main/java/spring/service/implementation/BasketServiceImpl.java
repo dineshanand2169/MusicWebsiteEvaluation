@@ -3,7 +3,9 @@ package spring.service.implementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import spring.dao.BasketDao;
 import spring.model.Basket;
+import spring.service.AddressService;
 import spring.service.BasketService;
+import spring.service.SongService;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -11,6 +13,12 @@ import java.util.List;
 public class BasketServiceImpl implements BasketService {
     @Autowired
     BasketDao basketDao;
+    @Autowired
+    SongService songService;
+    @Autowired
+    AddressService addressService;
+    private static final String ACTION_1 = "Pending";
+    private static final String ACTION_2 = "Approved";
 
     public BasketDao getBasketDao() {
         return basketDao;
@@ -48,16 +56,17 @@ public class BasketServiceImpl implements BasketService {
 
     @Override
     public Basket getBasketByUserId(int userId, String basketStatus) {
-        return basketDao.getBasketByUserId(userId,basketStatus);
+        return basketDao.getBasketByUserId(userId, basketStatus);
     }
 
     @Override
     public List<Basket> getAllBasketByUserId(int userId, String basketStatus) {
-        return basketDao.getAllBasketByUserId(userId,basketStatus);
+        return basketDao.getAllBasketByUserId(userId, basketStatus);
     }
 
     @Override
     public List<Basket> getAllBasketByStatus(String basketStatus) {
         return basketDao.getAllBasketByStatus(basketStatus);
     }
+
 }

@@ -7,29 +7,30 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <title>Customer Home</title>
     </head>
-    <body>
+    <body background="https://mobimg.b-cdn.net/v3/fetch/7b/7b6558540514d054a8d285377a6940e7.jpeg">
     <div align="center">
-            <h2>Welcome ${user.name} !</h2>
+    <span class="badge text-bg-success">
+            <h2>Welcome ${user.name} !</h2></span>
     <form method="get"  action="/MusicWebsite/user/getById/${user.id}">
-                        </br><input type="submit" class="blue-button" value="User Profile"/>
+                        </br><input type="submit" class="btn btn-secondary" value="User Profile"/>
     </form>
     <form method="get"  action="/MusicWebsite/user/editProfile/${user.id}">
-                        </br><input type="submit" class="blue-button" value="Edit Profile"/>
+                        </br><input type="submit" class="btn btn-secondary" value="Edit Profile"/>
     </form>
     <form method="get"  action="/MusicWebsite/user/allSongs">
-                                </br><input type="submit" class="blue-button" value="All Songs in Website"/>
+                                </br><input type="submit"class="btn btn-secondary" value="All Songs in Website"/>
     </form>
      <form method="get"  action="/MusicWebsite/user/musicList/${user.id}">
-                        </br><input type="submit" class="blue-button" value="Purchase Music"/>
+                        </br><input type="submit" class="btn btn-secondary" value="Purchase Music"/>
     </form>
     <form method="get"  action="/MusicWebsite/basket/basketStatus/${user.id}">
-                            </br><input type="submit" class="blue-button" value="View Basket Status"/>
+                            </br><input type="submit" class="btn btn-secondary" value="View Basket Status"/>
     </form>
     <form method="get"  action="/MusicWebsite/basket/purchaseHistory/${user.id}">
-                            </br><input type="submit" class="blue-button" value="Purchase History"/>
+                            </br><input type="submit" class="btn btn-secondary" value="Purchase History"/>
     </form>
     <form method="get"  action="/MusicWebsite/user/myLibrary/${user.id}">
-                            </br><input type="submit" class="blue-button" value="My Song Library"/>
+                            </br><input type="submit" class="btn btn-secondary" value="My Song Library"/>
     </form>
 
 

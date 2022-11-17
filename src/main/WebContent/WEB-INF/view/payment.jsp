@@ -3,12 +3,14 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <html>
 <head>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
-<body>
-</br>
-<h3>Address List</h3>
+<body background="https://mobimg.b-cdn.net/v3/fetch/7b/7b6558540514d054a8d285377a6940e7.jpeg">
+</br><span class="badge rounded-pill text-bg-success">
+<h3>Address List</h3></span> <br/> <br/>
     <c:if test="${!empty addressList}">
-        <table>
+        <table  class="table table-dark table-striped-columns">
             <tr>
                 <th width="80">Sl Number</th>
                 <th width="120">House Name</th>
@@ -31,7 +33,7 @@
          </c:if>
 
  <form:form method="post" modelAttribute="purchaseDetails" action="/MusicWebsite/basket/savePurchase">
-        <table>
+        <table class="table table-dark table-striped-columns">
             <tr>
                 <th colspan="2">Payment Portal</th>
             </tr>
@@ -55,7 +57,7 @@
                         </tr>
             <tr>
                 <td colspan="2"><input type="submit"
-                                       class="blue-button" /></td>
+                                       class="btn btn-info" /></td>
             </tr>
         </table>
     </form:form>

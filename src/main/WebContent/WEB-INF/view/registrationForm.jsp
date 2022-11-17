@@ -6,11 +6,11 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
-<body>
+<body background="https://mobimg.b-cdn.net/v3/fetch/7b/7b6558540514d054a8d285377a6940e7.jpeg">
 </br>
  <form:form method="post" modelAttribute="user" action="/MusicWebsite/user/saveNewUser">
 
-        <table>
+        <table class="table table-dark table-striped-columns">
         <tr>
             <tr>
                 <th colspan="2">User Registration Form</th>
@@ -44,7 +44,7 @@
 
            <tr>
            <form:form   modelAttribute="addressDetails" >
-                          <table>
+                          <table class="table table-dark table-striped-columns">
                               <tr>
                                   <th colspan="2">Add Address</th>
                               </tr>
@@ -87,6 +87,6 @@
     </form:form>
 
 
-     <button onclick="history.back()">Back to Home</button>
+     <button class="btn btn-warning" onclick="history.back()">Back to Home</button>
 </body>
         </html>

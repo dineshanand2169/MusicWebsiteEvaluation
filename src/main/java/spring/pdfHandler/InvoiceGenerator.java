@@ -7,7 +7,6 @@ import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 import spring.model.PurchaseDetails;
 
-
 import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
 import java.io.IOException;
@@ -49,11 +48,11 @@ public class InvoiceGenerator {
 
     private void writeTableData(PdfPTable table) {
         for (PurchaseDetails purchaseDetails : purchaseDetailsList) {
-            table.addCell("TiEVEmW"+purchaseDetails.getPurchaseId());
-            table.addCell("AD"+purchaseDetails.getBillingAddressId());
+            table.addCell("TiEVEmW" + purchaseDetails.getPurchaseId());
+            table.addCell("AD" + purchaseDetails.getBillingAddressId());
             table.addCell(String.valueOf(purchaseDetails.getPaymentMode()));
             table.addCell(String.valueOf(purchaseDetails.getPurchaseDate()));
-            table.addCell("INR"+purchaseDetails.getBillAmount());
+            table.addCell("INR" + purchaseDetails.getBillAmount());
         }
     }
 

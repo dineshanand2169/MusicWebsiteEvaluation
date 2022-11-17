@@ -15,6 +15,8 @@ public interface PurchaseDetailsService {
     void deletePurchase(int purchaseId) throws SQLException;
 
     PurchaseDetails getPurchaseById(int purchaseId) throws SQLException;
+
     Boolean paymentValidation(String paymentMethod);
-    PurchaseDetails getPurchaseByBasketId( int basketId);
+
+    PurchaseDetails getPurchaseByBasketId(int basketId);
 }

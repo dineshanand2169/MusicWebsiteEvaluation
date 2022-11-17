@@ -1,6 +1,5 @@
 package spring.dao;
 
-import org.springframework.data.repository.query.Param;
 import spring.model.Song;
 
 import java.sql.SQLException;
@@ -16,5 +15,8 @@ public interface SongDao {
     void deleteSong(int songId) throws SQLException;
 
     Song getSongById(int songId) throws SQLException;
+
     List<Song> getSongByGenre(String genre);
+
+    void saveAll(List<Song> songList);
 }

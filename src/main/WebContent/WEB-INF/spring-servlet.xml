@@ -54,6 +54,8 @@
     <bean id="userService" class="spring.service.implementation.UserServiceImpl">
         <property name="userDao" ref="userDao"/>
     </bean>
+    <bean id="validationService" class="spring.service.implementation.ValidationImpl">
+    </bean>
     <bean id="userDao" class="spring.dao.impl.UserDaoImpl">
         <property name="userRepository" ref="userRepository"/>
     </bean>
@@ -101,6 +103,11 @@
     </bean>
     <bean class="org.springframework.orm.jpa.JpaTransactionManager" id="transactionManager">
         <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- one of the properties available; the maximum file size in bytes -->
+        <!-- <property name="maxUploadSize" value="40000000" /> -->
     </bean>
     <mvc:resources mapping="/css/**" location="/css/" />
     <mvc:annotation-driven/>

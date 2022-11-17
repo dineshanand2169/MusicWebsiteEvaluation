@@ -33,7 +33,7 @@ public class ContentServiceImpl implements ContentService {
 
     @Override
     public void updateContent(Content content) {
-       contentDao.updateContent(content);
+        contentDao.updateContent(content);
     }
 
     @Override

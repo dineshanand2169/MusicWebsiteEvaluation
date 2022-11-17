@@ -1,6 +1,5 @@
 package spring.dao;
 
-import org.springframework.data.repository.query.Param;
 import spring.model.Basket;
 
 import java.sql.SQLException;
@@ -16,7 +15,10 @@ public interface BasketDao {
     void deleteBasket(int basketId) throws SQLException;
 
     Basket getBasketById(int basketId) throws SQLException;
+
     Basket getBasketByUserId(int userId, String basketStatus);
-    List<Basket> getAllBasketByUserId( int userId,String basketStatus);
+
+    List<Basket> getAllBasketByUserId(int userId, String basketStatus);
+
     List<Basket> getAllBasketByStatus(String basketStatus);
 }

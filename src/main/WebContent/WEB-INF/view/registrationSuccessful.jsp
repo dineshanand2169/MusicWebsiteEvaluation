@@ -3,13 +3,16 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="css/common.css">
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
-<body>
+<body background="https://mobimg.b-cdn.net/v3/fetch/7b/7b6558540514d054a8d285377a6940e7.jpeg">
 </br>
-<h2>Registered Successfully</h2>
-<h3>Kindly Wait for 2-3 Business Days. We will validate your credentials and accept your registration. </h3>
-   <button onclick="history.go(-2)">Home</button>
+<span class="badge rounded-pill text-bg-success">
+<h2>Registered Successfully</h2></span> <br/> <br/>
+<span class="badge text-bg-info">
+<h3>Kindly Wait for 2-3 Business Days. We will validate your credentials and accept your registration. </h3><br/> <br/> </span>
+   <button class="btn btn-warning" onclick="history.go(-2)">Home</button>
 
 </body>
         </html>

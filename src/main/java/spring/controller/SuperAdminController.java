@@ -28,12 +28,43 @@ public class SuperAdminController {
     public ModelAndView getAllUser() {
         List<Role> userRole = roleService.getUserByRole("ROLE_USER");
         List<User> userList = new ArrayList<>();
+        ModelAndView modelAndView = new ModelAndView("superAdminUserList");
         userClassification(userRole, userList);
         userList.removeIf(user -> Objects.equals(user.getStatus(), "Rejected"));
-        ModelAndView modelAndView = new ModelAndView("superAdminUserList");
         modelAndView.addObject("userList", userList);
         modelAndView.addObject("user", new User());
         return modelAndView;
+    }
+
+    @GetMapping(value = "/getAllAdmin")
+    public ModelAndView getAllAdmin() {
+        List<Role> adminRole = roleService.getUserByRole("ROLE_ADMIN");
+        List<User> adminList = new ArrayList<>();
+        ModelAndView modelAndView = new ModelAndView("adminList");
+        userClassification(adminRole, adminList);
+        modelAndView.addObject("userList", adminList);
+        modelAndView.addObject("user", new User());
+        return modelAndView;
+    }
+
+    @GetMapping(value = "/makeAdmin/{id}")
+    public ModelAndView makeAdmin(@PathVariable int id) throws SQLException {
+        User user = userService.getUserById(id);
+        Role role = roleService.getRoleByUserName(user.getUserName());
+        setUserAndRole("ok", "ROLE_ADMIN", user, role);
+        userService.insertUser(user);
+        roleService.updateRole(role);
+        return new ModelAndView("requestManagementSuccessful");
+    }
+
+    @GetMapping(value = "/removeAdmin/{id}")
+    public ModelAndView removeAdmin(@PathVariable int id) throws SQLException {
+        User user = userService.getUserById(id);
+        Role role = roleService.getRoleByUserName(user.getUserName());
+        setUserAndRole("ok", "ROLE_USER", user, role);
+        userService.insertUser(user);
+        roleService.updateRole(role);
+        return new ModelAndView("requestManagementSuccessful");
     }
 
     public void userClassification(List<Role> userRole, List<User> userList) {
@@ -42,34 +73,9 @@ public class SuperAdminController {
             userList.add(user);
         }
     }
-    @GetMapping(value = "/getAllAdmin")
-    public ModelAndView getAllAdmin(){
-        List<Role> adminRole = roleService.getUserByRole("ROLE_ADMIN");
-        List<User> adminList = new ArrayList<>();
-        userClassification(adminRole, adminList);
-        ModelAndView modelAndView = new ModelAndView("adminList");
-        modelAndView.addObject("userList",adminList);
-        modelAndView.addObject("user",new User());
-        return  modelAndView;
-    }
-    @GetMapping(value ="/makeAdmin/{id}")
-    public ModelAndView makeAdmin(@PathVariable int id) throws SQLException {
-        User user = userService.getUserById(id);
-        user.setStatus("ok");
-        Role role = roleService.getRoleByUserName(user.getUserName());
-        role.setRole("ROLE_ADMIN");
-        userService.insertUser(user);
-        roleService.updateRole(role);
-        return new ModelAndView("requestManagementSuccessful");
-    }
-    @GetMapping(value ="/removeAdmin/{id}")
-    public ModelAndView removeAdmin(@PathVariable int id) throws SQLException {
-        User user = userService.getUserById(id);
-        user.setStatus("ok");
-        Role role = roleService.getRoleByUserName(user.getUserName());
-        role.setRole("ROLE_USER");
-        userService.insertUser(user);
-        roleService.updateRole(role);
-        return new ModelAndView("requestManagementSuccessful");
+
+    public void setUserAndRole(String status, String userRole, User user, Role role) {
+        user.setStatus(status);
+        role.setRole(userRole);
     }
 }

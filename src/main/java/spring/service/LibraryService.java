@@ -15,5 +15,6 @@ public interface LibraryService {
     void deleteLibrary(int libraryId) throws SQLException;
 
     Library getLibraryById(int libraryId) throws SQLException;
+
     List<Library> getLibraryOfUser(int userId);
 }

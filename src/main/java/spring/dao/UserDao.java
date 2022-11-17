@@ -1,6 +1,5 @@
 package spring.dao;
 
-import org.springframework.data.repository.query.Param;
 import spring.model.User;
 
 import java.sql.SQLException;
@@ -16,6 +15,8 @@ public interface UserDao {
     void deleteUser(int userId) throws SQLException;
 
     User getUserById(int userId) throws SQLException;
-    User getUserByUserName( String name);
+
+    User getUserByUserName(String name);
+
     List<User> getUserByStatus(String status);
 }

@@ -15,5 +15,6 @@ public interface PurchaseDetailsDao {
     void deletePurchase(int purchaseId) throws SQLException;
 
     PurchaseDetails getPurchaseById(int purchaseId) throws SQLException;
-    PurchaseDetails getPurchaseByBasketId( int basketId);
+
+    PurchaseDetails getPurchaseByBasketId(int basketId);
 }

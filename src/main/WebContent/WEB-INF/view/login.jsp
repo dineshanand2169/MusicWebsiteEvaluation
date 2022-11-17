@@ -5,7 +5,7 @@
 <%@include file="style.css" %>
 </style>
 <head>
-<title>Custom Login Page</title>
+<title>Login</title>
 </head>
 <body onload='document.loginForm.j_username.focus();'>
 <h3>Custom Login Page</h3>

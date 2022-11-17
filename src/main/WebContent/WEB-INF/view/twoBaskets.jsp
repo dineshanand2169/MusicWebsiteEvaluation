@@ -3,8 +3,10 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <html>
 <head>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
-<body>
+<body background="https://mobimg.b-cdn.net/v3/fetch/7b/7b6558540514d054a8d285377a6940e7.jpeg">
 </br>
     <h2>Hurray! Your Basket is Approved by the Admin!</h2>
     <h3>Basket List<h3>
@@ -29,7 +31,7 @@
             </c:forEach>
         </table>
 </c:if>
-<button onclick='window.location ="/MusicWebsite/basket/checkOut/${userId}/$(basketId)" '>  Check Out </button>
+<button onclick='window.location ="/MusicWebsite/basket/checkOut/${userId}/${basketId}" '>  Check Out </button>
     <h4>Songs added after approval</h4>
     <c:if test="${!empty pendingSongList}">
         <table>

@@ -3,13 +3,15 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="css/common.css">
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
-<body>
+<body background="https://mobimg.b-cdn.net/v3/fetch/7b/7b6558540514d054a8d285377a6940e7.jpeg">
 </br>
-<h3>Song Successfully Added to Basket!!</h3>
-   <button onclick='window.location ="/MusicWebsite/userHome"' class="blue-button">Back Home</button>
-   <button onclick='window.location ="/MusicWebsite/user/musicList/${userId}"' class="blue-button">
+<span class="badge rounded-pill text-bg-success">
+<h3>Song Successfully Added to Basket!!</h3></span> <br/> <br/>
+   <button onclick='window.location ="/MusicWebsite/userHome"' class="btn btn-warning">Back Home</button>
+   <button onclick='window.location ="/MusicWebsite/user/musicList/${userId}"' class="btn btn-secondary">
    Add More Songs  </button>
 </body>
         </html>

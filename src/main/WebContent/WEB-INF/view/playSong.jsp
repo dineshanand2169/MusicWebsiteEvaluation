@@ -5,14 +5,18 @@
     "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <title>Play Song</title>
 </head>
-<body>
+<body background="https://www.wallpapertip.com/wmimgs/216-2166402_music-player-wallpaper.jpg">
     <div align="center">
-        <h2>EVE Music.com</h2>
-        <h3>Music Player</h3>
+    <span class="badge rounded-pill text-bg-success">
+        <h2>EVE Music.com</h2></span> <br/> <br/>
+        <span class="badge rounded-pill text-bg-dark">
+        <h3>Music Player</h3></span> <br/> <br/>
         <form:form method="get" modelAttribute="song">
-            <table border="2" cellpadding="5">
+            <table class="table table-success table-striped-columns"   cellpadding="5">
 
                 <tr>
                     <td>Song Name: </td>
@@ -44,7 +48,7 @@
                 </tr>
             </table>
                     </form:form>
-                    <button onclick="history.back()">My Library</button>
-                    <a href="http://localhost:8080/MusicWebsite/userHome">Home</a>
+                    <button class="btn btn-secondary" onclick="history.back()">My Library</button>
+                    <a class="link-warning" href="http://localhost:8080/MusicWebsite/userHome">Home</a>
                             </body>
                             </html>

@@ -7,26 +7,27 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <title>Admin Home</title>
     </head>
-    <body>
+   <body background="https://mobimg.b-cdn.net/v3/fetch/7b/7b6558540514d054a8d285377a6940e7.jpeg">
     <div align="center">
-            <h2>Welcome ${user.name} !</h2>
+    <span class="badge text-bg-success">
+            <h2>Welcome ${user.name} !</h2></span>
     <form method="get"  action="/MusicWebsite/superAdmin/getAllUser/">
-                        </br><input type="submit" class="blue-button" value="All Users"/>
+                        </br><input type="submit"class="btn btn-secondary" value="All Users"/>
     </form>
       <form method="get"  action="/MusicWebsite/superAdmin/getAllAdmin/">
-                            </br><input type="submit" class="blue-button" value="All Admin"/>
+                            </br><input type="submit" class="btn btn-secondary" value="All Admin"/>
         </form>
     <form method="get"  action="/MusicWebsite/admin/viewPurchaseRequest/">
-                        </br><input type="submit" class="blue-button" value="View Purchase Request"/>
+                        </br><input type="submit" class="btn btn-secondary" value="View Purchase Request"/>
     </form>
     <form method="get"  action="/MusicWebsite/user/allSongs">
-                                </br><input type="submit" class="blue-button" value="All Songs in Website"/>
+                                </br><input type="submit" class="btn btn-secondary" value="All Songs in Website"/>
     </form>
      <form method="get"  action="/MusicWebsite/admin/viewRegistrationRequest">
-                        </br><input type="submit" class="blue-button" value="Registration Request"/>
+                        </br><input type="submit" class="btn btn-secondary" value="Registration Request"/>
     </form>
     <form method="get"  action="/MusicWebsite/admin/addNewSong">
-                            </br><input type="submit" class="blue-button" value="Add New Song"/>
+                            </br><input type="submit" class="btn btn-secondary" value="Add New Song"/>
     </form>
 
 

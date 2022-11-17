@@ -51,4 +51,9 @@ public class SongDaoImpl implements SongDao {
     public List<Song> getSongByGenre(String genre) {
         return songRepository.getSongByGenre(genre);
     }
+
+    @Override
+    public void saveAll(List<Song> songList) {
+        songRepository.saveAll(songList);
+    }
 }

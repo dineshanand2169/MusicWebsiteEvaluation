@@ -3,15 +3,17 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="css/common.css">
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
-<body>
+<body background="https://mobimg.b-cdn.net/v3/fetch/7b/7b6558540514d054a8d285377a6940e7.jpeg">
 </br>
-<h3>Person List</h3>
+<span class="badge text-bg-success">
+<h3>Person List</h3></span>
 <form method="get"  action="/MusicWebsite/user/editPersonalDetails/${user.id}">
-                        </br><input type="submit" class="blue-button" value="Edit Personal Details"/>
+                        </br><input type="submit"class="btn btn-secondary" value="Edit Personal Details"/>
     </form>
     <form method="get"  action="/MusicWebsite/user/editAddressDetails/${user.id}">
-                        </br><input type="submit" class="blue-button" value="Edit Address Details"/>
+                        </br><input type="submit" class="btn btn-secondary" value="Edit Address Details"/>
     </form>
- <button onclick="history.back()">Back to Home</button>
+ <button class="btn btn-warning" onclick="history.back()">Back to Home</button>

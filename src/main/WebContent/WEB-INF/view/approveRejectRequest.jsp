@@ -10,7 +10,6 @@
 </br>
 <span class="badge rounded-pill text-bg-success">
 <h3>Successfully Updated</h3></span> <br/> <br/>
-   <button class="btn btn-warning" onclick="history.go(-2)">Back to Home</button>
-
+   <button class="btn btn-warning" onclick="history.go(-3)">Back to Home</button>
 </body>
         </html>

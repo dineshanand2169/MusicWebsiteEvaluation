@@ -8,51 +8,53 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import spring.model.User;
 import spring.service.UserService;
+
 import java.security.Principal;
 
 @Controller
 public class LoginController {
     @Autowired
     UserService userService;
+    private static final String ACTION_1 = "userName";
 
     @RequestMapping("/userHome")
     public ModelAndView userHome(ModelMap model, Principal principal) {
 
         User user = getUser(principal);
-        ModelAndView modelAndView = new ModelAndView("userHome","userName",user.getUserName());
-        modelAndView.addObject("user",user);
+        ModelAndView modelAndView = new ModelAndView("userHome", ACTION_1, user.getUserName());
+        modelAndView.addObject("user", user);
         return modelAndView;
     }
 
     @RequestMapping("/adminHome")
-    public ModelAndView adminHome(ModelMap model,Principal principal) {
+    public ModelAndView adminHome(ModelMap model, Principal principal) {
         User user = getUser(principal);
-        ModelAndView modelAndView = new ModelAndView("adminHome","userName",user.getUserName());
-        modelAndView.addObject("user",user);
+        ModelAndView modelAndView = new ModelAndView("adminHome", ACTION_1, user.getUserName());
+        modelAndView.addObject("user", user);
         return modelAndView;
     }
 
     private User getUser(Principal principal) {
-        String loggedInUserName= principal.getName();
+        String loggedInUserName = principal.getName();
         return userService.getUserByUserName(loggedInUserName);
     }
 
     @RequestMapping("/superAdminHome")
-    public ModelAndView superAminHome(ModelMap model,Principal principal) {
+    public ModelAndView superAminHome(ModelMap model, Principal principal) {
         User user = getUser(principal);
-        ModelAndView modelAndView = new ModelAndView("superAdminHome","userName",user.getUserName());
-        modelAndView.addObject("user",user);
+        ModelAndView modelAndView = new ModelAndView("superAdminHome", ACTION_1, user.getUserName());
+        modelAndView.addObject("user", user);
         return modelAndView;
     }
 
-    @GetMapping(value="/login")
+    @GetMapping(value = "/login")
     public String login(ModelMap model) {
 
         return "login";
 
     }
 
-    @GetMapping(value="/loginError")
+    @GetMapping(value = "/loginError")
     public String loginError(ModelMap model) {
         model.addAttribute("error", "true");
         return "login";
@@ -64,11 +66,9 @@ public class LoginController {
 
         ModelAndView model = new ModelAndView();
         if (user != null) {
-            model.addObject("msg", "Hi " + user.getName()
-                    + ", You can not access this page!");
+            model.addObject("msg", "Hi " + user.getName() + ", You can not access this page!");
         } else {
-            model.addObject("msg",
-                    "You can not access this page!");
+            model.addObject("msg", "You can not access this page!");
         }
 
         model.setViewName("403");
