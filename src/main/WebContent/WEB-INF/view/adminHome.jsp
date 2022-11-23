@@ -1,4 +1,4 @@
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
     <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
     <html>
@@ -11,7 +11,7 @@
     <div align="center">
     <span class="badge text-bg-success">
             <h2>Welcome ${user.name} !</h2></span>
-    <form method="get"  action="/MusicWebsite/admin/getAllUser/">
+    <form method="get"  action="/MusicWebsite/admin/getAllUser">
                         </br><input type="submit" class="btn btn-secondary" value="All Users"/>
     </form>
     <form method="get"  action="/MusicWebsite/admin/viewPurchaseRequest/">

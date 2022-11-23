@@ -35,6 +35,6 @@
             </c:forEach>
         </table>
         </c:if>
-        <a href="http://localhost:8080/MusicWebsite/superAdmin">Home</a>
+        <a href="http://localhost:8080/MusicWebsite/superAdminHome">Home</a>
         </body>
         </html>

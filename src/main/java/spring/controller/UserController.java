@@ -43,7 +43,7 @@ public class UserController {
         User user1 = userService.getUpdatedUser(user);
         Role role = new Role();
         address.setUserId(user1.getId());
-        role.setUserName(user1.getName());
+        role.setUserName(user1.getUserName());
         role.setRole("ROLE_USER");
         addressService.insertAddress(address);
         roleService.insertRole(role);
